@@ -1,16 +1,24 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net"
+
+	ggrpc "github.com/gdguesser/grpc-server/grpc"
+	"google.golang.org/grpc"
 )
 
 func main() {
-	lis, err := net.Listen("tcp", ":9000")
+	println("gRPC server tutorial in Go")
+
+	listener, err := net.Listen("tcp", ":9000")
 	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
+		panic(err)
 	}
 
-	fmt.Println(lis)
+	s := grpc.NewServer()
+	ggrpc.RegisterGrpcServer(s, &ggrpc.Server{})
+	if err := s.Serve(listener); err != nil {
+		log.Fatalf("failed to serve: %v", err)
+	}
 }
