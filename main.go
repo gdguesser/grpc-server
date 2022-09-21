@@ -9,9 +9,9 @@ import (
 )
 
 func main() {
-	println("gRPC server tutorial in Go")
+	println("gRPC server in Go")
 
-	listener, err := net.Listen("tcp", ":9000")
+	listener, err := net.Listen("tcp", "localhost:9000")
 	if err != nil {
 		panic(err)
 	}
