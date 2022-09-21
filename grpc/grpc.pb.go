@@ -218,6 +218,226 @@ func (x *SumReply) GetResult() int32 {
 	return 0
 }
 
+type HealthRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *HealthRequest) Reset() {
+	*x = HealthRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_grpc_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *HealthRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HealthRequest) ProtoMessage() {}
+
+func (x *HealthRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_grpc_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HealthRequest.ProtoReflect.Descriptor instead.
+func (*HealthRequest) Descriptor() ([]byte, []int) {
+	return file_grpc_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *HealthRequest) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type HealthReply struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+}
+
+func (x *HealthReply) Reset() {
+	*x = HealthReply{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_grpc_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *HealthReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*HealthReply) ProtoMessage() {}
+
+func (x *HealthReply) ProtoReflect() protoreflect.Message {
+	mi := &file_grpc_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use HealthReply.ProtoReflect.Descriptor instead.
+func (*HealthReply) Descriptor() ([]byte, []int) {
+	return file_grpc_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *HealthReply) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type TodoRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	Body  string `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
+}
+
+func (x *TodoRequest) Reset() {
+	*x = TodoRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_grpc_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TodoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TodoRequest) ProtoMessage() {}
+
+func (x *TodoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_grpc_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TodoRequest.ProtoReflect.Descriptor instead.
+func (*TodoRequest) Descriptor() ([]byte, []int) {
+	return file_grpc_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *TodoRequest) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *TodoRequest) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
+type TodoReply struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id    int32  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title string `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	Done  bool   `protobuf:"varint,3,opt,name=done,proto3" json:"done,omitempty"`
+	Body  string `protobuf:"bytes,4,opt,name=body,proto3" json:"body,omitempty"`
+}
+
+func (x *TodoReply) Reset() {
+	*x = TodoReply{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_grpc_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TodoReply) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TodoReply) ProtoMessage() {}
+
+func (x *TodoReply) ProtoReflect() protoreflect.Message {
+	mi := &file_grpc_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TodoReply.ProtoReflect.Descriptor instead.
+func (*TodoReply) Descriptor() ([]byte, []int) {
+	return file_grpc_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *TodoReply) GetId() int32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *TodoReply) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+func (x *TodoReply) GetDone() bool {
+	if x != nil {
+		return x.Done
+	}
+	return false
+}
+
+func (x *TodoReply) GetBody() string {
+	if x != nil {
+		return x.Body
+	}
+	return ""
+}
+
 var File_grpc_proto protoreflect.FileDescriptor
 
 var file_grpc_proto_rawDesc = []byte{
@@ -232,13 +452,32 @@ var file_grpc_proto_rawDesc = []byte{
 	0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04, 0x6e, 0x75, 0x6d, 0x32, 0x22, 0x22, 0x0a, 0x08,
 	0x53, 0x75, 0x6d, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75,
 	0x6c, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74,
-	0x32, 0x51, 0x0a, 0x04, 0x47, 0x72, 0x70, 0x63, 0x12, 0x28, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48,
-	0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x0d, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79,
-	0x22, 0x00, 0x12, 0x1f, 0x0a, 0x03, 0x53, 0x75, 0x6d, 0x12, 0x0b, 0x2e, 0x53, 0x75, 0x6d, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x09, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x70, 0x6c,
-	0x79, 0x22, 0x00, 0x42, 0x08, 0x5a, 0x06, 0x2e, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x22, 0x29, 0x0a, 0x0d, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x27, 0x0a, 0x0b, 0x48,
+	0x65, 0x61, 0x6c, 0x74, 0x68, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65,
+	0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73,
+	0x73, 0x61, 0x67, 0x65, 0x22, 0x37, 0x0a, 0x0b, 0x54, 0x6f, 0x64, 0x6f, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64,
+	0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x22, 0x59, 0x0a,
+	0x09, 0x54, 0x6f, 0x64, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69,
+	0x74, 0x6c, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65,
+	0x12, 0x12, 0x0a, 0x04, 0x64, 0x6f, 0x6e, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x08, 0x52, 0x04,
+	0x64, 0x6f, 0x6e, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x18, 0x04, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x04, 0x62, 0x6f, 0x64, 0x79, 0x32, 0xa2, 0x01, 0x0a, 0x04, 0x47, 0x72, 0x70,
+	0x63, 0x12, 0x28, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x0d, 0x2e,
+	0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0b, 0x2e, 0x48,
+	0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x1f, 0x0a, 0x03, 0x53,
+	0x75, 0x6d, 0x12, 0x0b, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x09, 0x2e, 0x53, 0x75, 0x6d, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x28, 0x0a, 0x06,
+	0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x12, 0x0e, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x0c, 0x2e, 0x48, 0x65, 0x61, 0x6c, 0x74, 0x68, 0x52,
+	0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x25, 0x0a, 0x07, 0x41, 0x64, 0x64, 0x54, 0x6f, 0x64,
+	0x6f, 0x12, 0x0c, 0x2e, 0x54, 0x6f, 0x64, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x0a, 0x2e, 0x54, 0x6f, 0x64, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x42, 0x08, 0x5a,
+	0x06, 0x2e, 0x2f, 0x67, 0x72, 0x70, 0x63, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -253,20 +492,28 @@ func file_grpc_proto_rawDescGZIP() []byte {
 	return file_grpc_proto_rawDescData
 }
 
-var file_grpc_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_grpc_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_grpc_proto_goTypes = []interface{}{
-	(*HelloRequest)(nil), // 0: HelloRequest
-	(*HelloReply)(nil),   // 1: HelloReply
-	(*SumRequest)(nil),   // 2: SumRequest
-	(*SumReply)(nil),     // 3: SumReply
+	(*HelloRequest)(nil),  // 0: HelloRequest
+	(*HelloReply)(nil),    // 1: HelloReply
+	(*SumRequest)(nil),    // 2: SumRequest
+	(*SumReply)(nil),      // 3: SumReply
+	(*HealthRequest)(nil), // 4: HealthRequest
+	(*HealthReply)(nil),   // 5: HealthReply
+	(*TodoRequest)(nil),   // 6: TodoRequest
+	(*TodoReply)(nil),     // 7: TodoReply
 }
 var file_grpc_proto_depIdxs = []int32{
 	0, // 0: Grpc.SayHello:input_type -> HelloRequest
 	2, // 1: Grpc.Sum:input_type -> SumRequest
-	1, // 2: Grpc.SayHello:output_type -> HelloReply
-	3, // 3: Grpc.Sum:output_type -> SumReply
-	2, // [2:4] is the sub-list for method output_type
-	0, // [0:2] is the sub-list for method input_type
+	4, // 2: Grpc.Health:input_type -> HealthRequest
+	6, // 3: Grpc.AddTodo:input_type -> TodoRequest
+	1, // 4: Grpc.SayHello:output_type -> HelloReply
+	3, // 5: Grpc.Sum:output_type -> SumReply
+	5, // 6: Grpc.Health:output_type -> HealthReply
+	7, // 7: Grpc.AddTodo:output_type -> TodoReply
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -326,6 +573,54 @@ func file_grpc_proto_init() {
 				return nil
 			}
 		}
+		file_grpc_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*HealthRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_grpc_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*HealthReply); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_grpc_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TodoRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_grpc_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TodoReply); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -333,7 +628,7 @@ func file_grpc_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_grpc_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

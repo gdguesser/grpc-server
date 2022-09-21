@@ -25,6 +25,8 @@ type GrpcClient interface {
 	// Sends a greeting
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
 	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumReply, error)
+	Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthReply, error)
+	AddTodo(ctx context.Context, in *TodoRequest, opts ...grpc.CallOption) (*TodoReply, error)
 }
 
 type grpcClient struct {
@@ -53,6 +55,24 @@ func (c *grpcClient) Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallO
 	return out, nil
 }
 
+func (c *grpcClient) Health(ctx context.Context, in *HealthRequest, opts ...grpc.CallOption) (*HealthReply, error) {
+	out := new(HealthReply)
+	err := c.cc.Invoke(ctx, "/Grpc/Health", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *grpcClient) AddTodo(ctx context.Context, in *TodoRequest, opts ...grpc.CallOption) (*TodoReply, error) {
+	out := new(TodoReply)
+	err := c.cc.Invoke(ctx, "/Grpc/AddTodo", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GrpcServer is the server API for Grpc service.
 // All implementations must embed UnimplementedGrpcServer
 // for forward compatibility
@@ -60,6 +80,8 @@ type GrpcServer interface {
 	// Sends a greeting
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
 	Sum(context.Context, *SumRequest) (*SumReply, error)
+	Health(context.Context, *HealthRequest) (*HealthReply, error)
+	AddTodo(context.Context, *TodoRequest) (*TodoReply, error)
 	mustEmbedUnimplementedGrpcServer()
 }
 
@@ -72,6 +94,12 @@ func (UnimplementedGrpcServer) SayHello(context.Context, *HelloRequest) (*HelloR
 }
 func (UnimplementedGrpcServer) Sum(context.Context, *SumRequest) (*SumReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Sum not implemented")
+}
+func (UnimplementedGrpcServer) Health(context.Context, *HealthRequest) (*HealthReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Health not implemented")
+}
+func (UnimplementedGrpcServer) AddTodo(context.Context, *TodoRequest) (*TodoReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddTodo not implemented")
 }
 func (UnimplementedGrpcServer) mustEmbedUnimplementedGrpcServer() {}
 
@@ -122,6 +150,42 @@ func _Grpc_Sum_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Grpc_Health_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HealthRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GrpcServer).Health(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Grpc/Health",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GrpcServer).Health(ctx, req.(*HealthRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Grpc_AddTodo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TodoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GrpcServer).AddTodo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Grpc/AddTodo",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GrpcServer).AddTodo(ctx, req.(*TodoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Grpc_ServiceDesc is the grpc.ServiceDesc for Grpc service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -136,6 +200,14 @@ var Grpc_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Sum",
 			Handler:    _Grpc_Sum_Handler,
+		},
+		{
+			MethodName: "Health",
+			Handler:    _Grpc_Health_Handler,
+		},
+		{
+			MethodName: "AddTodo",
+			Handler:    _Grpc_AddTodo_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

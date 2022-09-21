@@ -7,6 +7,10 @@ service Grpc {
     // Sends a greeting
     rpc SayHello (HelloRequest) returns (HelloReply) {}
     rpc Sum (SumRequest) returns (SumReply) {}
+
+    rpc Health (HealthRequest) returns (HealthReply) {}
+
+    rpc AddTodo (TodoRequest) returns (TodoReply) {}
 }
   
 // The request message containing the user's name.
@@ -26,4 +30,24 @@ message SumRequest {
 
 message SumReply {
     int32 result = 1;
+}
+
+message HealthRequest {
+    string message = 1;
+}
+
+message HealthReply {
+    string message = 1;
+}
+
+message TodoRequest {
+    string title = 1;
+    string body = 2;
+}
+
+message TodoReply {
+    int32 id = 1;
+    string title = 2;
+    bool done = 3;
+    string body = 4;
 }
