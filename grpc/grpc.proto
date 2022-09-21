@@ -6,6 +6,7 @@ option go_package = "./grpc";
 service Grpc {
     // Sends a greeting
     rpc SayHello (HelloRequest) returns (HelloReply) {}
+    rpc Sum (SumRequest) returns (SumReply) {}
 }
   
 // The request message containing the user's name.
@@ -16,4 +17,13 @@ message HelloRequest {
 // The response message containing the greetings
 message HelloReply {
     string message = 1;
+}
+
+message SumRequest {
+    int32 num = 1;
+    int32 num2 = 2;
+}
+
+message SumReply {
+    int32 result = 1;
 }
